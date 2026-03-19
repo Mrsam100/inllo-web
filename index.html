@@ -960,9 +960,9 @@ async function refreshAdmin() {
   document.getElementById('kNl').textContent       = nl;
   document.getElementById('kUnsub').textContent    = unsub;
   document.getElementById('kTotalSub').textContent  = 'registradas en total';
-  document.getElementById('kActiveSub').textContent = active > 0 ? `${Math.round(active/total*100)}% del total` : '—';
+  document.getElementById('kActiveSub').textContent = total > 0 ? `${Math.round(active/total*100)}% del total` : '—';
   document.getElementById('kNlSub').textContent     = active > 0 ? `${Math.round(nl/active*100)}% de activas` : '—';
-  document.getElementById('kUnsubSub').textContent  = total > 0  ? `${Math.round(unsub/total*100)}% del total` : '—';
+  document.getElementById('kUnsubSub').textContent  = total > 0 ? `${Math.round(unsub/total*100)}% del total` : '—';
 
   // Circles
   document.getElementById('sActive').textContent = active;
@@ -1234,7 +1234,7 @@ const LEGAL = {
 <p><strong>Datos que recopilamos:</strong> nombre, correo electrónico, idioma preferido y preferencia de newsletter.</p>
 <p><strong>Cómo usamos tus datos:</strong> para enviarte la guía de meditación y, si aceptas, nuestro newsletter con recursos de bienestar.</p>
 <p><strong>Almacenamiento:</strong> tus datos se almacenan de forma segura en servidores de Supabase (infraestructura de AWS) con cifrado en reposo.</p>
-<p><strong>Compartir datos:</strong> no vendemos ni compartimos tus datos con terceros, excepto Brevo (servicio de correo electrónico) para el envío de emails.</p>
+<p><strong>Compartir datos:</strong> no vendemos ni compartimos tus datos con terceros, excepto Resend (servicio de correo electrónico) para el envío de emails.</p>
 <p><strong>Tus derechos:</strong> puedes solicitar la eliminación de tus datos en cualquier momento escribiendo a <a href="mailto:hola@inllo.com" style="color:var(--gold)">hola@inllo.com</a>.</p>
 <p><strong>Cookies:</strong> este sitio no utiliza cookies de seguimiento.</p>
 <p><strong>Contacto:</strong> hola@inllo.com</p>`,
@@ -1244,7 +1244,7 @@ const LEGAL = {
 <p><strong>Data we collect:</strong> name, email address, preferred language, and newsletter preference.</p>
 <p><strong>How we use your data:</strong> to send you the meditation guide and, if you opt in, our wellness newsletter.</p>
 <p><strong>Storage:</strong> your data is stored securely on Supabase servers (AWS infrastructure) with encryption at rest.</p>
-<p><strong>Data sharing:</strong> we do not sell or share your data with third parties, except Brevo (email service) for sending emails.</p>
+<p><strong>Data sharing:</strong> we do not sell or share your data with third parties, except Resend (email service) for sending emails.</p>
 <p><strong>Your rights:</strong> you can request deletion of your data at any time by emailing <a href="mailto:hola@inllo.com" style="color:var(--gold)">hola@inllo.com</a>.</p>
 <p><strong>Cookies:</strong> this site does not use tracking cookies.</p>
 <p><strong>Contact:</strong> hola@inllo.com</p>`
