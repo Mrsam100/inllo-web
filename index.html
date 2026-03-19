@@ -1302,9 +1302,20 @@ window.showLegal      = showLegal;
 window.closeLegal     = closeLegal;
 
 // ═══════════════════════════════════════════════════
-//  INIT
+//  INIT — restore session on reload
 // ═══════════════════════════════════════════════════
 setLang('es');
+
+// Check if admin is already logged in (persists across reload)
+(async () => {
+  try {
+    const sb = await initSupabase();
+    const { data: { session } } = await sb.auth.getSession();
+    if (session && session.user && session.user.email === ADMIN_EMAIL) {
+      openAdmin();
+    }
+  } catch { /* not logged in, stay on landing */ }
+})();
 </script>
 </body>
 </html>
