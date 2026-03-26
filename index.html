@@ -277,12 +277,124 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
 /* ═══════════════════════════════════════
    RESPONSIVE — NEW SECTIONS
 ═══════════════════════════════════════ */
-@media (max-width: 700px) {
-  .inside-grid { grid-template-columns: 1fr; }
-  .testi-grid { grid-template-columns: 1fr; }
-  .how-steps { flex-direction: column; gap: 40px; }
+/* ═══════════════════════════════════════
+   MOBILE RESPONSIVE
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Topbar */
+  .l-topbar { padding: 16px 20px; }
+  .l-logo-name { font-size: 1.4rem; }
+  .l-logo-sub { font-size: 0.5rem; letter-spacing: 0.35em; }
+  .lang-btn { padding: 6px 12px; font-size: 0.65rem; }
+
+  /* Hero */
+  .l-hero { padding: 56px 20px 40px; }
+  .l-eyebrow { font-size: 0.55rem; letter-spacing: 0.3em; margin-bottom: 20px; }
+  .l-eyebrow::before, .l-eyebrow::after { width: 20px; }
+  .l-h1 { font-size: 2.2rem; margin-bottom: 20px; }
+  .l-desc { font-size: 0.92rem; margin-bottom: 36px; }
+  .trust-row { gap: 16px; }
+  .trust-item { font-size: 0.7rem; }
+
+  /* Book */
+  .guide-wrap { padding: 40px 20px; }
+  .guide-book { max-width: 300px; }
+  .book-cover { padding: 40px 28px 36px; }
+  .book-logo { font-size: 1.8rem; }
+  .book-logo-sub { font-size: 0.45rem; margin-bottom: 28px; }
+  .book-title { font-size: 1.2rem; }
+  .book-body { padding: 24px 24px 20px; }
+
+  /* Features */
+  .features { grid-template-columns: 1fr; gap: 16px; max-width: 400px; padding: 0 20px; margin-bottom: 60px; }
+  .feat { padding: 32px 24px 28px; }
+  .feat-icon { width: 60px; height: 60px; }
+  .feat-icon svg { width: 28px; height: 28px; }
+  .feat-title { font-size: 1.15rem; }
+  .feat-text { font-size: 0.85rem; }
+
+  /* Social Proof */
+  .social-proof { padding: 36px 20px 48px; }
+  .proof-number { font-size: 2.8rem; }
+  .proof-label { font-size: 0.72rem; letter-spacing: 0.25em; }
+  .proof-avatar { width: 38px; height: 38px; font-size: 0.75rem; }
+
+  /* What's Inside */
+  .inside-section { padding: 56px 20px; }
+  .inside-grid { grid-template-columns: 1fr; gap: 14px; }
+  .inside-item { padding: 20px 18px; }
+  .inside-num { font-size: 1.3rem; min-width: 28px; }
+  .inside-ch-title { font-size: 0.95rem; }
+  .inside-ch-desc { font-size: 0.75rem; }
+  .inside-title { font-size: 1.6rem; }
+
+  /* Testimonials */
+  .testimonials { padding: 56px 20px; }
+  .testi-grid { grid-template-columns: 1fr; gap: 16px; }
+  .testi-card { padding: 28px 22px 24px; }
+  .testi-text { font-size: 0.84rem; }
+  .testi-quote-icon { font-size: 3rem; top: 14px; right: 18px; }
+  .testi-title { font-size: 1.6rem; }
+
+  /* How It Works */
+  .how-section { padding: 56px 20px 72px; }
+  .how-steps { flex-direction: column; gap: 44px; align-items: center; }
   .how-connector { display: none; }
-  .proof-number { font-size: 3rem; }
+  .how-step { max-width: 280px; }
+  .how-icon { width: 76px; height: 76px; }
+  .how-icon svg { width: 32px; height: 32px; }
+  .how-title { font-size: 1.6rem; }
+
+  /* Form */
+  .form-outer { padding: 0 20px 72px; }
+  .form-card { padding: 32px 24px; border-radius: 22px; }
+  .form-headline { font-size: 1.7rem; }
+  .form-sub { font-size: 0.88rem; margin-bottom: 28px; }
+  .field input { padding: 14px 16px; font-size: 0.95rem; }
+  .btn-cta { padding: 18px; font-size: 0.78rem; }
+  .section-label { font-size: 0.6rem; margin-bottom: 32px; }
+  .section-label::before, .section-label::after { width: 28px; }
+
+  /* Success / Language Choice */
+  .lang-choice { flex-direction: column; gap: 12px; width: 100%; }
+  .btn-lang { flex-direction: row; padding: 18px 28px; width: 100%; justify-content: center; }
+  .lang-flag { font-size: 1.8rem; }
+  .success-hl { font-size: 1.7rem; }
+
+  /* Footer */
+  .l-footer { padding: 40px 20px 32px; }
+  .footer-logo { font-size: 1.5rem; }
+  .footer-links { gap: 16px; }
+  .footer-link { font-size: 0.68rem; }
+  .admin-link { font-size: 0.6rem; padding: 6px 16px; }
+
+  /* Ambient orbs smaller on mobile */
+  .amb-1 { width: 300px; height: 300px; }
+  .amb-2 { width: 200px; height: 250px; }
+
+  /* Hide cursor glow on mobile */
+  .cursor-glow { display: none !important; }
+
+  /* Eyebrows — all sections */
+  .inside-eyebrow, .testi-eyebrow, .how-eyebrow { font-size: 0.58rem; }
+  .inside-eyebrow::before, .inside-eyebrow::after,
+  .testi-eyebrow::before, .testi-eyebrow::after,
+  .how-eyebrow::before, .how-eyebrow::after { width: 24px; }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+  .l-h1 { font-size: 1.9rem; }
+  .l-hero { padding: 44px 16px 32px; }
+  .guide-book { max-width: 260px; }
+  .book-cover { padding: 32px 22px 28px; }
+  .book-logo { font-size: 1.5rem; }
+  .book-title { font-size: 1.05rem; }
+  .form-card { padding: 24px 18px; }
+  .proof-number { font-size: 2.2rem; }
+  .trust-row { flex-direction: column; gap: 10px; }
+  .form-trust { flex-direction: column; gap: 8px; }
+  .nl-row { padding: 14px; }
 }
 
 /* FORM */
@@ -494,8 +606,6 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
   .charts-row{grid-template-columns:1fr}
   .settings-grid{grid-template-columns:1fr}
   .a-sidebar{display:none}
-  .features{grid-template-columns:1fr}
-  .form-card{padding:28px 22px}
 }
 </style>
 </head>
