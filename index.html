@@ -181,6 +181,110 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
 .feat-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--dark); margin-bottom: 12px; }
 .feat-text { font-size: 0.9rem; color: var(--mid); line-height: 1.75; max-width: 220px; margin: 0 auto; }
 
+/* ═══════════════════════════════════════
+   SOCIAL PROOF COUNTER
+═══════════════════════════════════════ */
+.social-proof { position: relative; z-index: 10; text-align: center; padding: 48px 28px 64px; }
+.proof-number { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5rem); font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+.proof-number span { display: inline-block; }
+.proof-plus { font-size: 0.6em; vertical-align: super; color: var(--gold-bright); margin-left: 2px; }
+.proof-label { font-size: 0.85rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--mid); margin-bottom: 28px; }
+.proof-avatars { display: flex; justify-content: center; align-items: center; gap: 0; margin-bottom: 20px; }
+.proof-avatar { width: 44px; height: 44px; border-radius: 50%; border: 3px solid var(--cream); margin-left: -10px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.proof-avatar:first-child { margin-left: 0; }
+.proof-avatar.a1 { background: linear-gradient(135deg, #b8943a, #d4aa50); }
+.proof-avatar.a2 { background: linear-gradient(135deg, #7c6930, #b8943a); }
+.proof-avatar.a3 { background: linear-gradient(135deg, #d4aa50, #e8c66a); }
+.proof-avatar.a4 { background: linear-gradient(135deg, #9a7a2c, #b8943a); }
+.proof-avatar.a5 { background: linear-gradient(135deg, #b8943a, #7c6930); z-index: 1; }
+.proof-stars { display: flex; justify-content: center; gap: 4px; margin-bottom: 6px; }
+.proof-stars svg { width: 20px; height: 20px; fill: var(--gold); }
+.proof-rating { font-size: 0.75rem; color: var(--light); }
+
+/* ═══════════════════════════════════════
+   WHAT'S INSIDE
+═══════════════════════════════════════ */
+.inside-section { position: relative; z-index: 10; padding: 80px 28px; max-width: 800px; margin: 0 auto; }
+.inside-header { text-align: center; margin-bottom: 56px; }
+.inside-eyebrow { font-size: 0.68rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+.inside-eyebrow::before, .inside-eyebrow::after { content: ''; width: 40px; height: 1px; background: linear-gradient(90deg,transparent,rgba(184,148,58,0.4)); }
+.inside-eyebrow::after { background: linear-gradient(90deg,rgba(184,148,58,0.4),transparent); }
+.inside-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 300; color: var(--dark); line-height: 1.2; }
+.inside-title em { font-style: italic; color: var(--gold); }
+.inside-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.inside-item { display: flex; align-items: flex-start; gap: 18px; padding: 24px 22px; background: rgba(255,255,255,0.55); border: 1px solid var(--border); border-radius: 18px; transition: all 0.35s; }
+.inside-item:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(26,21,16,0.08); background: rgba(255,255,255,0.85); }
+.inside-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 300; color: var(--gold); line-height: 1; min-width: 32px; }
+.inside-content { flex: 1; }
+.inside-ch-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--dark); margin-bottom: 4px; }
+.inside-ch-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.6; }
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.testimonials { position: relative; z-index: 10; padding: 80px 28px; max-width: 900px; margin: 0 auto; }
+.testi-header { text-align: center; margin-bottom: 52px; }
+.testi-eyebrow { font-size: 0.68rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+.testi-eyebrow::before, .testi-eyebrow::after { content: ''; width: 40px; height: 1px; background: linear-gradient(90deg,transparent,rgba(184,148,58,0.4)); }
+.testi-eyebrow::after { background: linear-gradient(90deg,rgba(184,148,58,0.4),transparent); }
+.testi-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 300; color: var(--dark); line-height: 1.2; }
+.testi-title em { font-style: italic; color: var(--gold); }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.testi-card { background: rgba(255,255,255,0.6); border: 1px solid var(--border); border-radius: 22px; padding: 36px 28px 32px; position: relative; transition: all 0.4s; }
+.testi-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(26,21,16,0.1); background: rgba(255,255,255,0.9); }
+.testi-quote-icon { position: absolute; top: 20px; right: 24px; font-family: 'Playfair Display', serif; font-size: 4rem; line-height: 1; color: var(--gold-pale); pointer-events: none; }
+.testi-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+.testi-stars svg { width: 16px; height: 16px; fill: var(--gold); }
+.testi-text { font-size: 0.88rem; color: var(--text); line-height: 1.75; font-style: italic; margin-bottom: 22px; position: relative; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600; color: #fff; }
+.testi-info { flex: 1; }
+.testi-name { font-size: 0.82rem; font-weight: 500; color: var(--dark); }
+.testi-role { font-size: 0.68rem; color: var(--light); }
+
+/* ═══════════════════════════════════════
+   HOW IT WORKS
+═══════════════════════════════════════ */
+.how-section { position: relative; z-index: 10; padding: 80px 28px 96px; max-width: 860px; margin: 0 auto; }
+.how-header { text-align: center; margin-bottom: 60px; }
+.how-eyebrow { font-size: 0.68rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+.how-eyebrow::before, .how-eyebrow::after { content: ''; width: 40px; height: 1px; background: linear-gradient(90deg,transparent,rgba(184,148,58,0.4)); }
+.how-eyebrow::after { background: linear-gradient(90deg,rgba(184,148,58,0.4),transparent); }
+.how-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 300; color: var(--dark); line-height: 1.2; }
+.how-title em { font-style: italic; color: var(--gold); }
+.how-steps { display: flex; align-items: flex-start; gap: 0; position: relative; }
+.how-step { flex: 1; text-align: center; padding: 0 20px; position: relative; }
+.how-icon { width: 88px; height: 88px; margin: 0 auto 20px; background: linear-gradient(145deg, rgba(184,148,58,0.08), rgba(184,148,58,0.15)); border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; z-index: 2; transition: all 0.4s; }
+.how-step:hover .how-icon { background: linear-gradient(135deg, var(--gold-bright), var(--gold)); border-color: var(--gold); transform: scale(1.08); box-shadow: 0 12px 32px rgba(184,148,58,0.3); }
+.how-icon svg { width: 36px; height: 36px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.4s; }
+.how-step:hover .how-icon svg { stroke: #fff; }
+.how-num { font-family: 'Playfair Display', serif; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 10px; text-transform: uppercase; }
+.how-step-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--dark); margin-bottom: 8px; }
+.how-step-desc { font-size: 0.82rem; color: var(--mid); line-height: 1.65; max-width: 200px; margin: 0 auto; }
+.how-connector { position: absolute; top: 44px; left: 33.3%; width: 33.3%; height: 2px; z-index: 1; }
+.how-connector::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), rgba(184,148,58,0.3)); border-radius: 1px; }
+.how-connector-2 { left: 66.6% !important; }
+.how-connector-2::before { background: linear-gradient(90deg, rgba(184,148,58,0.3), var(--gold)); }
+
+/* ═══════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════ */
+.section-divider { position: relative; z-index: 10; display: flex; align-items: center; justify-content: center; gap: 16px; padding: 20px 0; max-width: 300px; margin: 0 auto; }
+.section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg,transparent,var(--border)); }
+.section-divider::after { background: linear-gradient(90deg,var(--border),transparent); }
+.divider-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); opacity: 0.5; }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — NEW SECTIONS
+═══════════════════════════════════════ */
+@media (max-width: 700px) {
+  .inside-grid { grid-template-columns: 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .how-steps { flex-direction: column; gap: 40px; }
+  .how-connector { display: none; }
+  .proof-number { font-size: 3rem; }
+}
+
 /* FORM */
 .form-outer { position: relative; z-index: 10; padding: 0 28px 96px; max-width: 580px; margin: 0 auto; }
 .section-label { text-align: center; font-size: 0.68rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); margin-bottom: 44px; display: flex; align-items: center; justify-content: center; gap: 18px; }
@@ -481,6 +585,201 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
       <div class="feat-text" data-es="Creada con la sabiduría de Liliana Lorna" data-en="Created with the wisdom of Liliana Lorna">Creada con la sabiduría de Liliana Lorna</div>
     </div>
   </section>
+
+  <!-- SOCIAL PROOF COUNTER -->
+  <section class="social-proof gs-hidden">
+    <div class="proof-avatars">
+      <div class="proof-avatar a1">M</div>
+      <div class="proof-avatar a2">L</div>
+      <div class="proof-avatar a3">A</div>
+      <div class="proof-avatar a4">C</div>
+      <div class="proof-avatar a5">+</div>
+    </div>
+    <div class="proof-number"><span id="proofCount">0</span><span class="proof-plus">+</span></div>
+    <div class="proof-label" data-es="personas ya descargaron la guía" data-en="people already downloaded the guide">personas ya descargaron la guía</div>
+    <div class="proof-stars">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <div class="proof-rating" data-es="4.9 de 5 — valoración media" data-en="4.9 out of 5 — average rating">4.9 de 5 — valoración media</div>
+  </section>
+
+  <div class="section-divider"><div class="divider-dot"></div></div>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="inside-section gs-hidden">
+    <div class="inside-header">
+      <div class="inside-eyebrow" data-es="Contenido de la guía" data-en="What's inside">Contenido de la guía</div>
+      <div class="inside-title"><span data-es="8 capítulos para <em>transformar</em> tu vida" data-en="8 chapters to <em>transform</em> your life">8 capítulos para <em>transformar</em> tu vida</span></div>
+    </div>
+    <div class="inside-grid">
+      <div class="inside-item">
+        <div class="inside-num">01</div>
+        <div class="inside-content">
+          <div class="inside-ch-title" data-es="¿Qué es la meditación?" data-en="What is meditation?">¿Qué es la meditación?</div>
+          <div class="inside-ch-desc" data-es="Los fundamentos y la ciencia detrás de la práctica milenaria." data-en="The fundamentals and science behind the ancient practice.">Los fundamentos y la ciencia detrás de la práctica milenaria.</div>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">02</div>
+        <div class="inside-content">
+          <div class="inside-ch-title" data-es="Preparando tu espacio" data-en="Preparing your space">Preparando tu espacio</div>
+          <div class="inside-ch-desc" data-es="Cómo crear un rincón de paz en cualquier lugar." data-en="How to create a peaceful corner anywhere.">Cómo crear un rincón de paz en cualquier lugar.</div>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">03</div>
+        <div class="inside-content">
+          <div class="inside-ch-title" data-es="Respiración consciente" data-en="Conscious breathing">Respiración consciente</div>
+          <div class="inside-ch-desc" data-es="Técnicas de respiración que calman la mente en segundos." data-en="Breathing techniques that calm your mind in seconds.">Técnicas de respiración que calman la mente en segundos.</div>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">04</div>
+        <div class="inside-content">
+          <div class="inside-ch-title" data-es="Tu primera meditación" data-en="Your first meditation">Tu primera meditación</div>
+          <div class="inside-ch-desc" data-es="Una sesión guiada de 5 minutos paso a paso." data-en="A guided 5-minute session, step by step.">Una sesión guiada de 5 minutos paso a paso.</div>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">05</div>
+        <div class="inside-content">
+          <div class="inside-ch-title" data-es="Meditación en movimiento" data-en="Moving meditation">Meditación en movimiento</div>
+          <div class="inside-ch-desc" data-es="Cómo meditar mientras caminas, cocinas o trabajas." data-en="How to meditate while walking, cooking, or working.">Cómo meditar mientras caminas, cocinas o trabajas.</div>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">06</div>
+        <div class="inside-content">
+          <div class="inside-ch-title" data-es="Superando obstáculos" data-en="Overcoming obstacles">Superando obstáculos</div>
+          <div class="inside-ch-desc" data-es="Qué hacer cuando no puedes concentrarte o te frustras." data-en="What to do when you can't focus or feel frustrated.">Qué hacer cuando no puedes concentrarte o te frustras.</div>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">07</div>
+        <div class="inside-content">
+          <div class="inside-ch-title" data-es="Creando tu rutina" data-en="Creating your routine">Creando tu rutina</div>
+          <div class="inside-ch-desc" data-es="El plan de 21 días para convertir la meditación en hábito." data-en="The 21-day plan to make meditation a habit.">El plan de 21 días para convertir la meditación en hábito.</div>
+        </div>
+      </div>
+      <div class="inside-item">
+        <div class="inside-num">08</div>
+        <div class="inside-content">
+          <div class="inside-ch-title" data-es="Más allá de la guía" data-en="Beyond the guide">Más allá de la guía</div>
+          <div class="inside-ch-desc" data-es="Recursos y próximos pasos para profundizar tu práctica." data-en="Resources and next steps to deepen your practice.">Recursos y próximos pasos para profundizar tu práctica.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><div class="divider-dot"></div></div>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials gs-hidden">
+    <div class="testi-header">
+      <div class="testi-eyebrow" data-es="Lo que dicen nuestras lectoras" data-en="What our readers say">Lo que dicen nuestras lectoras</div>
+      <div class="testi-title"><span data-es="Historias <em>reales</em> de transformación" data-en="Real stories of <em>transformation</em>">Historias <em>reales</em> de transformación</span></div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote-icon">"</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="testi-text" data-es="Nunca pensé que podría meditar. Esta guía me lo hizo tan fácil que ahora es parte de mi mañana. 5 minutos que cambiaron todo." data-en="I never thought I could meditate. This guide made it so easy that now it's part of my morning. 5 minutes that changed everything.">Nunca pensé que podría meditar. Esta guía me lo hizo tan fácil que ahora es parte de mi mañana. 5 minutos que cambiaron todo.</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #b8943a, #d4aa50);">M</div>
+          <div class="testi-info">
+            <div class="testi-name">María González</div>
+            <div class="testi-role" data-es="Profesora · Madrid" data-en="Teacher · Madrid">Profesora · Madrid</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote-icon">"</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="testi-text" data-es="Sufría de ansiedad terrible. El capítulo de respiración consciente me dio herramientas que uso todos los días. Gracias, Liliana." data-en="I suffered from terrible anxiety. The conscious breathing chapter gave me tools I use every day. Thank you, Liliana.">Sufría de ansiedad terrible. El capítulo de respiración consciente me dio herramientas que uso todos los días. Gracias, Liliana.</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #7c6930, #b8943a);">L</div>
+          <div class="testi-info">
+            <div class="testi-name">Laura Méndez</div>
+            <div class="testi-role" data-es="Diseñadora · Buenos Aires" data-en="Designer · Buenos Aires">Diseñadora · Buenos Aires</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote-icon">"</div>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="testi-text" data-es="Le regalé esta guía a mi mamá y ahora meditamos juntas cada noche. Es simple, hermosa, y llena de amor. La mejor guía que he encontrado." data-en="I gave this guide to my mom and now we meditate together every night. It's simple, beautiful, and full of love. The best guide I've found.">Le regalé esta guía a mi mamá y ahora meditamos juntas cada noche. Es simple, hermosa, y llena de amor. La mejor guía que he encontrado.</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #d4aa50, #e8c66a);">A</div>
+          <div class="testi-info">
+            <div class="testi-name">Ana Ruiz</div>
+            <div class="testi-role" data-es="Estudiante · Ciudad de México" data-en="Student · Mexico City">Estudiante · Ciudad de México</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><div class="divider-dot"></div></div>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section gs-hidden">
+    <div class="how-header">
+      <div class="how-eyebrow" data-es="Así de fácil" data-en="It's this easy">Así de fácil</div>
+      <div class="how-title"><span data-es="3 pasos para <em>comenzar</em>" data-en="3 steps to <em>get started</em>">3 pasos para <em>comenzar</em></span></div>
+    </div>
+    <div class="how-steps">
+      <div class="how-connector"></div>
+      <div class="how-connector how-connector-2"></div>
+      <div class="how-step">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <div class="how-num" data-es="Paso 1" data-en="Step 1">Paso 1</div>
+        <div class="how-step-title" data-es="Descarga" data-en="Download">Descarga</div>
+        <div class="how-step-desc" data-es="Ingresa tu nombre y correo. El PDF se descarga al instante." data-en="Enter your name and email. The PDF downloads instantly.">Ingresa tu nombre y correo. El PDF se descarga al instante.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="how-num" data-es="Paso 2" data-en="Step 2">Paso 2</div>
+        <div class="how-step-title" data-es="Lee" data-en="Read">Lee</div>
+        <div class="how-step-desc" data-es="8 capítulos breves y claros. Lo terminas en una tarde." data-en="8 short and clear chapters. Finish it in one afternoon.">8 capítulos breves y claros. Lo terminas en una tarde.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/><line x1="12" y1="2" x2="12" y2="2"/></svg>
+        </div>
+        <div class="how-num" data-es="Paso 3" data-en="Step 3">Paso 3</div>
+        <div class="how-step-title" data-es="Medita" data-en="Meditate">Medita</div>
+        <div class="how-step-desc" data-es="Solo 5 minutos al día. Sigue la guía y siente la diferencia." data-en="Just 5 minutes a day. Follow the guide and feel the difference.">Solo 5 minutos al día. Sigue la guía y siente la diferencia.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"><div class="divider-dot"></div></div>
 
   <!-- FORM -->
   <section class="form-outer gs-hidden">
@@ -1495,6 +1794,114 @@ function initGSAP() {
     .fromTo('.btn-cta',
       { y: 15, opacity: 0, scale: 0.95 },
       { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.2');
+
+  // ─── SOCIAL PROOF — counter animation ───
+  ScrollTrigger.create({
+    trigger: '.social-proof',
+    start: 'top 85%',
+    onEnter: () => {
+      gsap.fromTo('.social-proof',
+        { opacity: 0, visibility: 'hidden', y: 40 },
+        { opacity: 1, visibility: 'visible', y: 0, duration: 0.8, ease });
+
+      // Animate avatars
+      gsap.fromTo('.proof-avatar',
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.4, stagger: 0.08, ease: 'back.out(2)' });
+
+      // Counter animation
+      const counter = { val: 0 };
+      const target = 2847;
+      gsap.to(counter, {
+        val: target, duration: 2.5, ease: 'power2.out',
+        onUpdate: () => {
+          document.getElementById('proofCount').textContent = Math.floor(counter.val).toLocaleString('es-ES');
+        }
+      });
+
+      // Stars
+      gsap.fromTo('.proof-stars svg',
+        { scale: 0, rotation: -30 },
+        { scale: 1, rotation: 0, duration: 0.3, stagger: 0.06, ease: 'back.out(3)', delay: 0.5 });
+    },
+    once: true
+  });
+
+  // ─── WHAT'S INSIDE — staggered cards ───
+  const insideTl = gsap.timeline({
+    scrollTrigger: { trigger: '.inside-section', start: 'top 82%' }
+  });
+  insideTl
+    .fromTo('.inside-section',
+      { opacity: 0, visibility: 'hidden' },
+      { opacity: 1, visibility: 'visible', duration: 0.3 })
+    .fromTo('.inside-eyebrow',
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease }, '-=0.1')
+    .fromTo('.inside-title',
+      { y: 30, opacity: 0, clipPath: 'inset(100% 0 0 0)' },
+      { y: 0, opacity: 1, clipPath: 'inset(0% 0 0 0)', duration: 0.8, ease: 'power4.out' }, '-=0.3')
+    .fromTo('.inside-item',
+      { y: 40, opacity: 0, scale: 0.95 },
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, stagger: 0.08, ease: 'back.out(1.2)' }, '-=0.3')
+    .fromTo('.inside-num',
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.35, stagger: 0.08, ease: 'elastic.out(1, 0.5)' }, '-=1');
+
+  // ─── TESTIMONIALS — dramatic card entrance ───
+  const testiTl = gsap.timeline({
+    scrollTrigger: { trigger: '.testimonials', start: 'top 82%' }
+  });
+  testiTl
+    .fromTo('.testimonials',
+      { opacity: 0, visibility: 'hidden' },
+      { opacity: 1, visibility: 'visible', duration: 0.3 })
+    .fromTo('.testi-eyebrow',
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease }, '-=0.1')
+    .fromTo('.testi-title',
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7, ease }, '-=0.3')
+    .fromTo('.testi-card',
+      { y: 60, opacity: 0, rotateX: 8, scale: 0.92 },
+      { y: 0, opacity: 1, rotateX: 0, scale: 1, duration: 0.7, stagger: 0.15, ease: 'power3.out' }, '-=0.3')
+    .fromTo('.testi-quote-icon',
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.4, stagger: 0.15, ease: 'elastic.out(1, 0.6)' }, '-=1')
+    .fromTo('.testi-stars svg',
+      { scale: 0 },
+      { scale: 1, duration: 0.2, stagger: 0.03, ease: 'back.out(3)' }, '-=1');
+
+  // ─── HOW IT WORKS — step by step reveal ───
+  const howTl = gsap.timeline({
+    scrollTrigger: { trigger: '.how-section', start: 'top 82%' }
+  });
+  howTl
+    .fromTo('.how-section',
+      { opacity: 0, visibility: 'hidden' },
+      { opacity: 1, visibility: 'visible', duration: 0.3 })
+    .fromTo('.how-eyebrow',
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease }, '-=0.1')
+    .fromTo('.how-title',
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.7, ease }, '-=0.3')
+    .fromTo('.how-connector::before, .how-connector',
+      { scaleX: 0 },
+      { scaleX: 1, duration: 0.8, ease: 'power2.inOut' }, '-=0.2')
+    .fromTo('.how-step',
+      { y: 50, opacity: 0, scale: 0.9 },
+      { y: 0, opacity: 1, scale: 1, duration: 0.6, stagger: 0.2, ease: 'back.out(1.4)' }, '-=0.5')
+    .fromTo('.how-icon',
+      { scale: 0, rotation: -20 },
+      { scale: 1, rotation: 0, duration: 0.5, stagger: 0.2, ease: 'elastic.out(1, 0.5)' }, '-=1');
+
+  // ─── DIVIDERS — fade in ───
+  gsap.fromTo('.section-divider',
+    { opacity: 0, scaleX: 0 },
+    { opacity: 1, scaleX: 1, duration: 0.6, ease: 'power2.out', stagger: 0.1,
+      scrollTrigger: { trigger: '.section-divider', start: 'top 90%' }
+    });
 
   // ─── FOOTER — fade up ───
   gsap.fromTo('.l-footer',
