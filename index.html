@@ -220,6 +220,12 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
 .btn-dl { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: linear-gradient(135deg,var(--gold-bright),var(--gold)); color: #fff; border: none; border-radius: 12px; font-family: 'Raleway', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; box-shadow: 0 4px 20px rgba(184,148,58,0.4); transition: all 0.3s; text-decoration: none; }
 .btn-dl:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(184,148,58,0.5); }
 .btn-dl svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.lang-choice { display: flex; gap: 16px; margin-top: 8px; }
+.btn-lang { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 32px; background: rgba(184,148,58,0.08); border: 2px solid var(--gold); border-radius: 16px; cursor: pointer; transition: all 0.3s; font-family: 'Raleway', sans-serif; }
+.btn-lang:hover { background: linear-gradient(135deg,var(--gold-bright),var(--gold)); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(184,148,58,0.4); }
+.btn-lang:hover .lang-label { color: #fff; }
+.lang-flag { font-size: 2rem; }
+.lang-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
 
 /* FOOTER */
 .l-footer { position: relative; z-index: 10; border-top: 1px solid var(--border); padding: 48px 32px 36px; text-align: center; }
@@ -513,11 +519,17 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
       <div class="success-view" id="successView">
         <div class="success-circle"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         <div class="success-hl" id="successHl">Gracias!</div>
-        <div class="success-body" data-es="Tu descarga comienza en un momento." data-en="Your download starts in a moment." aria-live="polite">Tu descarga comienza en un momento.</div>
-        <a class="btn-dl" id="dlBtn" href="#" download>
-          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span data-es="Descargar PDF" data-en="Download PDF">Descargar PDF</span>
-        </a>
+        <div class="success-body" data-es="Elige el idioma de tu guía:" data-en="Choose your guide language:" aria-live="polite">Elige el idioma de tu guía:</div>
+        <div class="lang-choice">
+          <button class="btn-lang" id="dlEs" onclick="downloadPdf('es')">
+            <span class="lang-flag">🇪🇸</span>
+            <span class="lang-label">Español</span>
+          </button>
+          <button class="btn-lang" id="dlEn" onclick="downloadPdf('en')">
+            <span class="lang-flag">🇬🇧</span>
+            <span class="lang-label">English</span>
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -685,11 +697,16 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
             <button class="btn-setting" onclick="changePassword()">Guardar contraseña</button>
           </div>
           <div class="setting-card">
-            <div class="setting-title">Enlace del PDF</div>
-            <div class="setting-desc">URL del PDF que se descarga al suscribirse. Puede ser Google Drive, Dropbox o cualquier enlace directo.</div>
-            <input type="text" class="setting-input" id="pdfUrl" placeholder="https://drive.google.com/...">
-            <button class="btn-setting" onclick="savePdfUrl()">Guardar enlace</button>
-            <div class="setting-note" id="pdfNote"></div>
+            <div class="setting-title">PDF Español 🇪🇸</div>
+            <div class="setting-desc">URL del PDF en español. Google Drive, Dropbox o enlace directo.</div>
+            <input type="text" class="setting-input" id="pdfUrlEs" placeholder="https://drive.google.com/...">
+            <button class="btn-setting" onclick="savePdfUrl('es')">Guardar enlace</button>
+          </div>
+          <div class="setting-card">
+            <div class="setting-title">PDF English 🇬🇧</div>
+            <div class="setting-desc">URL of the English PDF. Google Drive, Dropbox or direct link.</div>
+            <input type="text" class="setting-input" id="pdfUrlEn" placeholder="https://drive.google.com/...">
+            <button class="btn-setting" onclick="savePdfUrl('en')">Guardar enlace</button>
           </div>
           <div class="setting-card">
             <div class="setting-title">Exportar Datos</div>
@@ -721,7 +738,8 @@ const SUPABASE_URL  = "https://nbtlgqjtzwccucaphrfm.supabase.co";
 const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5idGxncWp0endjY3VjYXBocmZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4NjExNDcsImV4cCI6MjA4OTQzNzE0N30.Jr_bHWruGFHqEJN5BLBWaNNW2RbMe_QYmbwaIoIJiDY";
 // Admin email — set this to your Supabase Auth admin user email
 const ADMIN_EMAIL   = "team.superorbit@gmail.com";
-const PDF_URL_DEFAULT = "https://drive.google.com/uc?export=download&id=1B7bO4wl2oqzxJ5Rpr1hny1L-Pmce6AnW";
+const PDF_URL_ES = "https://drive.google.com/uc?export=download&id=1B7bO4wl2oqzxJ5Rpr1hny1L-Pmce6AnW";
+const PDF_URL_EN = "https://drive.google.com/uc?export=download&id=1InJNU3HytwRgh4AsWFQmWTgzlw9Ob-AM";
 
 // ═══════════════════════════════════════════════════
 //  SUPABASE — lazy-loaded client
@@ -842,18 +860,7 @@ async function handleSubmit() {
     document.getElementById('formView').style.display   = 'none';
     document.getElementById('successView').style.display = 'flex';
 
-    // Get PDF URL from config
-    let pdfUrl = PDF_URL_DEFAULT;
-    try {
-      const { data: cfg } = await sb.from('config').select('value').eq('key', 'pdf_url').single();
-      if (cfg?.value) pdfUrl = cfg.value;
-    } catch { /* use default */ }
-
-    // Trigger PDF download
-    const a = document.createElement('a');
-    a.href = pdfUrl; a.download = 'guia-meditacion-inllo.pdf';
-    a.target = '_blank'; a.click();
-    document.getElementById('dlBtn').href = pdfUrl;
+    // PDF URLs are loaded on-demand when user picks a language
 
   } catch (err) {
     console.error('Submit error:', err);
@@ -865,6 +872,26 @@ async function handleSubmit() {
     btn.disabled = false;
     ctaTxt.textContent = lang === 'en' ? 'Download my free guide' : 'Descargar mi guía gratis';
   }
+}
+
+// ═══════════════════════════════════════════════════
+//  PDF LANGUAGE DOWNLOAD
+// ═══════════════════════════════════════════════════
+async function downloadPdf(pdfLang) {
+  let url = pdfLang === 'en' ? PDF_URL_EN : PDF_URL_ES;
+  const filename = pdfLang === 'en' ? 'meditation-guide-inllo.pdf' : 'guia-meditacion-inllo.pdf';
+
+  // Try to get custom URL from config
+  try {
+    const sb = await initSupabase();
+    const key = pdfLang === 'en' ? 'pdf_url_en' : 'pdf_url_es';
+    const { data: cfg } = await sb.from('config').select('value').eq('key', key).single();
+    if (cfg?.value) url = cfg.value;
+  } catch { /* use default */ }
+
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  a.target = '_blank'; a.click();
 }
 
 // ═══════════════════════════════════════════════════
@@ -907,11 +934,16 @@ async function openAdmin() {
   document.getElementById('page-landing').classList.remove('active');
   document.getElementById('page-admin').classList.add('active');
 
-  // Load saved PDF URL from config
+  // Load saved PDF URLs from config
   try {
     const sb = await initSupabase();
-    const { data } = await sb.from('config').select('value').eq('key', 'pdf_url').single();
-    if (data?.value) document.getElementById('pdfUrl').value = data.value;
+    const { data } = await sb.from('config').select('key,value').in('key', ['pdf_url_es', 'pdf_url_en']);
+    if (data) {
+      for (const row of data) {
+        if (row.key === 'pdf_url_es') document.getElementById('pdfUrlEs').value = row.value;
+        if (row.key === 'pdf_url_en') document.getElementById('pdfUrlEn').value = row.value;
+      }
+    }
   } catch { /* ignore */ }
 
   refreshAdmin();
@@ -1129,16 +1161,17 @@ async function changePassword() {
   }
 }
 
-async function savePdfUrl() {
-  const url = document.getElementById('pdfUrl').value.trim();
+async function savePdfUrl(pdfLang) {
+  const inputId = pdfLang === 'en' ? 'pdfUrlEn' : 'pdfUrlEs';
+  const url = document.getElementById(inputId).value.trim();
   if (!url) { toast('Ingresa un enlace válido', 'error'); return; }
 
   try {
     const sb = await initSupabase();
-    const { error } = await sb.from('config').upsert({ key: 'pdf_url', value: url });
+    const key = pdfLang === 'en' ? 'pdf_url_en' : 'pdf_url_es';
+    const { error } = await sb.from('config').upsert({ key, value: url });
     if (error) throw error;
-    document.getElementById('pdfNote').textContent = 'Guardado. Los nuevos suscriptores recibirán este enlace.';
-    toast('Enlace del PDF guardado', 'success');
+    toast(`PDF ${pdfLang === 'en' ? 'English' : 'Español'} guardado`, 'success');
   } catch (err) {
     console.error('savePdfUrl error:', err);
     toast('Error al guardar', 'error');
@@ -1294,6 +1327,7 @@ window.removeSub      = removeSub;
 window.exportCSV      = exportCSV;
 window.changePassword = changePassword;
 window.savePdfUrl     = savePdfUrl;
+window.downloadPdf    = downloadPdf;
 window.clearAllData   = clearAllData;
 window.nextPage       = nextPage;
 window.prevPage       = prevPage;

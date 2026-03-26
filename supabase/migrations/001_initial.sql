@@ -43,9 +43,13 @@ create table if not exists public.config (
   value text not null
 );
 
--- Insert default PDF URL
+-- Insert default PDF URLs (Spanish + English)
 insert into public.config (key, value)
-values ('pdf_url', 'https://drive.google.com/uc?export=download&id=1B7bO4wl2oqzxJ5Rpr1hny1L-Pmce6AnW')
+values ('pdf_url_es', 'https://drive.google.com/uc?export=download&id=1B7bO4wl2oqzxJ5Rpr1hny1L-Pmce6AnW')
+on conflict (key) do nothing;
+
+insert into public.config (key, value)
+values ('pdf_url_en', 'https://drive.google.com/uc?export=download&id=1InJNU3HytwRgh4AsWFQmWTgzlw9Ob-AM')
 on conflict (key) do nothing;
 
 -- 3. STATS CACHE TABLE (V12 fix: avoids full table scan for KPIs)
