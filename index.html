@@ -241,10 +241,14 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
 .admin-link { font-size: 0.75rem; color: var(--gold); text-decoration: none; margin-top: 20px; display: inline-block; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s; cursor: pointer; background: none; border: 1px solid rgba(184,148,58,0.4); font-family: 'Raleway', sans-serif; padding: 8px 24px; border-radius: 4px; }
 .admin-link:hover { background: var(--gold); color: var(--dark); }
 
-/* ANIMATIONS */
-@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-.reveal { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) forwards; }
-.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}.d5{animation-delay:.7s}.d6{animation-delay:.85s}
+/* ANIMATIONS — GSAP handles these now */
+.gs-hidden { opacity: 0; visibility: hidden; }
+.split-char { display: inline-block; }
+.book-card { transform-style: preserve-3d; }
+.amb { transition: transform 0.3s ease-out; }
+.golden-line { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, transparent, var(--gold-bright), var(--gold), transparent); z-index: 9999; pointer-events: none; }
+.cursor-glow { position: fixed; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(184,148,58,0.06) 0%, transparent 70%); pointer-events: none; z-index: 0; transform: translate(-50%,-50%); display: none; }
+@media (hover: hover) { .cursor-glow { display: block; } }
 
 /* ═══════════════════════════════════════
    PASSWORD MODAL
@@ -393,6 +397,9 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
 </head>
 <body>
 
+<div class="golden-line" id="goldenLine"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
 <!-- ═══════════════════════════════════════════
      LANDING PAGE
 ═══════════════════════════════════════════ -->
@@ -402,7 +409,7 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
   <div class="amb amb-2"></div>
 
   <!-- TOPBAR -->
-  <header class="l-topbar">
+  <header class="l-topbar gs-hidden">
     <div>
       <div class="l-logo-name">INLLO</div>
       <div class="l-logo-sub">Instituto Liliana Lorna</div>
@@ -415,14 +422,14 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
 
   <!-- HERO -->
   <section class="l-hero">
-    <div class="l-eyebrow reveal d1" data-es="Guía Gratuita · PDF · 8 Páginas" data-en="Free Guide · PDF · 8 Pages">Guía Gratuita · PDF · 8 Páginas</div>
-    <h1 class="l-h1 reveal d2">
+    <div class="l-eyebrow gs-hidden" data-es="Guía Gratuita · PDF · 8 Páginas" data-en="Free Guide · PDF · 8 Pages">Guía Gratuita · PDF · 8 Páginas</div>
+    <h1 class="l-h1 gs-hidden">
       <span data-es="La guía para <em>aprender<br>a meditar</em>" data-en="The guide to <em>learning<br>to meditate</em>">La guía para <em>aprender<br>a meditar</em></span>
     </h1>
-    <p class="l-desc reveal d3" data-es="Descubre cómo transformar tu vida con solo 5 minutos de meditación al día. Una guía creada con amor para quienes dan sus primeros pasos." data-en="Discover how to transform your life with just 5 minutes of meditation a day. A guide created with love for those taking their first steps.">
+    <p class="l-desc gs-hidden" data-es="Descubre cómo transformar tu vida con solo 5 minutos de meditación al día. Una guía creada con amor para quienes dan sus primeros pasos." data-en="Discover how to transform your life with just 5 minutes of meditation a day. A guide created with love for those taking their first steps.">
       Descubre cómo transformar tu vida con solo 5 minutos de meditación al día. Una guía creada con amor para quienes dan sus primeros pasos.
     </p>
-    <div class="trust-row reveal d4">
+    <div class="trust-row gs-hidden">
       <div class="trust-item"><div class="trust-dot"></div><span data-es="100% Gratuito" data-en="100% Free">100% Gratuito</span></div>
       <div class="trust-item"><div class="trust-dot"></div><span data-es="Descarga Inmediata" data-en="Instant Download">Descarga Inmediata</span></div>
       <div class="trust-item"><div class="trust-dot"></div><span data-es="Sin tarjeta de crédito" data-en="No credit card">Sin tarjeta de crédito</span></div>
@@ -430,7 +437,7 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
   </section>
 
   <!-- BOOK PREVIEW -->
-  <div class="guide-wrap reveal d4">
+  <div class="guide-wrap gs-hidden">
     <div class="guide-book">
       <div class="book-card">
         <div class="book-cover">
@@ -457,7 +464,7 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
   </div>
 
   <!-- FEATURES -->
-  <section class="features reveal d5">
+  <section class="features gs-hidden">
     <div class="feat">
       <div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div>
       <div class="feat-title" data-es="5 Minutos" data-en="5 Minutes">5 Minutos</div>
@@ -476,7 +483,7 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
   </section>
 
   <!-- FORM -->
-  <section class="form-outer reveal d6">
+  <section class="form-outer gs-hidden">
     <div class="section-label" data-es="Recibe tu guía" data-en="Get your guide">Recibe tu guía</div>
     <h2 class="form-headline"><span data-es="Descarga <em>gratis</em> ahora" data-en="Download <em>free</em> now">Descarga <em>gratis</em> ahora</span></h2>
     <p class="form-sub" data-es="Ingresa tu nombre y correo y el PDF se descarga al instante." data-en="Enter your name and email and the PDF downloads instantly.">Ingresa tu nombre y correo y el PDF se descarga al instante.</p>
@@ -538,7 +545,7 @@ body { font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden;
   </section>
 
   <!-- FOOTER -->
-  <footer class="l-footer">
+  <footer class="l-footer gs-hidden">
     <div class="footer-logo">INLLO</div>
     <div class="footer-inst">Instituto Liliana Lorna</div>
     <div class="footer-links">
@@ -1353,6 +1360,176 @@ setLang('es');
     }
   } catch { /* not logged in, stay on landing */ }
 })();
+</script>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// Only run animations on landing page
+if (document.getElementById('page-landing')?.classList.contains('active')) {
+  initGSAP();
+}
+
+function initGSAP() {
+  const ease = 'power3.out';
+  const softEase = 'power2.out';
+
+  // ─── GOLDEN SCROLL PROGRESS LINE ───
+  gsap.to('#goldenLine', {
+    width: '100%',
+    ease: 'none',
+    scrollTrigger: { trigger: '#page-landing', start: 'top top', end: 'bottom bottom', scrub: 0.3 }
+  });
+
+  // ─── CURSOR GLOW (follows mouse) ───
+  const glow = document.getElementById('cursorGlow');
+  if (window.matchMedia('(hover: hover)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      gsap.to(glow, { x: e.clientX, y: e.clientY, duration: 0.6, ease: 'power2.out' });
+    });
+  }
+
+  // ─── TOPBAR — slide down + fade ───
+  const tl = gsap.timeline({ defaults: { ease, duration: 0.8 } });
+  tl.fromTo('.l-topbar', { y: -60, opacity: 0, visibility: 'hidden' }, { y: 0, opacity: 1, visibility: 'visible' });
+
+  // ─── HERO — staggered entrance ───
+  tl.fromTo('.l-eyebrow',
+    { y: 30, opacity: 0, visibility: 'hidden', scale: 0.95 },
+    { y: 0, opacity: 1, visibility: 'visible', scale: 1, duration: 0.7 }, '-=0.3')
+  .fromTo('.l-h1',
+    { y: 50, opacity: 0, visibility: 'hidden', clipPath: 'inset(100% 0 0 0)' },
+    { y: 0, opacity: 1, visibility: 'visible', clipPath: 'inset(0% 0 0 0)', duration: 1, ease: 'power4.out' }, '-=0.4')
+  .fromTo('.l-desc',
+    { y: 30, opacity: 0, visibility: 'hidden' },
+    { y: 0, opacity: 1, visibility: 'visible', duration: 0.7 }, '-=0.5')
+  .fromTo('.trust-row',
+    { y: 20, opacity: 0, visibility: 'hidden' },
+    { y: 0, opacity: 1, visibility: 'visible', duration: 0.6 }, '-=0.3')
+  .fromTo('.trust-item', { y: 15, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 0.5 }, '-=0.3');
+
+  // ─── AMBIENT ORBS — slow floating ───
+  gsap.to('.amb-1', { y: 30, x: -20, duration: 6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+  gsap.to('.amb-2', { y: -25, x: 15, duration: 8, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+
+  // ─── BOOK — scroll-triggered 3D entrance ───
+  gsap.fromTo('.guide-wrap',
+    { y: 80, opacity: 0, visibility: 'hidden', rotateX: 8, scale: 0.92 },
+    { y: 0, opacity: 1, visibility: 'visible', rotateX: 0, scale: 1, duration: 1.2, ease: 'power3.out',
+      scrollTrigger: { trigger: '.guide-wrap', start: 'top 85%', toggleActions: 'play none none none' }
+    });
+
+  // Book parallax tilt on scroll
+  gsap.to('.book-card', {
+    rotateY: 3, rotateX: -2, y: -20,
+    scrollTrigger: { trigger: '.guide-wrap', start: 'top bottom', end: 'bottom top', scrub: 1.5 }
+  });
+
+  // Book cover shimmer
+  gsap.fromTo('.book-cover::before',
+    { opacity: 0.2 }, { opacity: 0.5, duration: 3, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+
+  // Chapter bars — staggered width animation
+  ScrollTrigger.create({
+    trigger: '.book-body',
+    start: 'top 85%',
+    onEnter: () => {
+      gsap.from('.ch-bar', {
+        width: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out'
+      });
+    },
+    once: true
+  });
+
+  // ─── FEATURES — staggered pop-in ───
+  gsap.fromTo('.features',
+    { opacity: 0, visibility: 'hidden' },
+    { opacity: 1, visibility: 'visible', duration: 0.3,
+      scrollTrigger: { trigger: '.features', start: 'top 85%' }
+    });
+
+  gsap.fromTo('.feat', {
+    y: 60, opacity: 0, scale: 0.9, rotateY: -5
+  }, {
+    y: 0, opacity: 1, scale: 1, rotateY: 0,
+    duration: 0.8, stagger: 0.15, ease: 'back.out(1.4)',
+    scrollTrigger: { trigger: '.features', start: 'top 82%', toggleActions: 'play none none none' }
+  });
+
+  // Feature icons — bounce on scroll
+  gsap.fromTo('.feat-icon', {
+    scale: 0, rotation: -15
+  }, {
+    scale: 1, rotation: 0,
+    duration: 0.6, stagger: 0.15, ease: 'elastic.out(1, 0.5)',
+    scrollTrigger: { trigger: '.features', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+
+  // ─── FORM — dramatic entrance ───
+  const formTl = gsap.timeline({
+    scrollTrigger: { trigger: '.form-outer', start: 'top 85%', toggleActions: 'play none none none' }
+  });
+
+  formTl
+    .fromTo('.form-outer',
+      { y: 60, opacity: 0, visibility: 'hidden' },
+      { y: 0, opacity: 1, visibility: 'visible', duration: 0.8, ease })
+    .fromTo('.section-label',
+      { scaleX: 0, opacity: 0 },
+      { scaleX: 1, opacity: 1, duration: 0.6, ease }, '-=0.4')
+    .fromTo('.form-headline',
+      { y: 30, opacity: 0, clipPath: 'inset(100% 0 0 0)' },
+      { y: 0, opacity: 1, clipPath: 'inset(0% 0 0 0)', duration: 0.7, ease: 'power4.out' }, '-=0.3')
+    .fromTo('.form-sub',
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, ease: softEase }, '-=0.2')
+    .fromTo('.form-card',
+      { y: 40, opacity: 0, scale: 0.97 },
+      { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' }, '-=0.3')
+    .fromTo('.field',
+      { x: -20, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: softEase }, '-=0.4')
+    .fromTo('.btn-cta',
+      { y: 15, opacity: 0, scale: 0.95 },
+      { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.2');
+
+  // ─── FOOTER — fade up ───
+  gsap.fromTo('.l-footer',
+    { y: 30, opacity: 0, visibility: 'hidden' },
+    { y: 0, opacity: 1, visibility: 'visible', duration: 0.8, ease,
+      scrollTrigger: { trigger: '.l-footer', start: 'top 95%' }
+    });
+
+  // ─── CTA BUTTON — subtle pulse glow ───
+  gsap.to('.btn-cta', {
+    boxShadow: '0 8px 40px rgba(184,148,58,0.6)',
+    duration: 1.5, yoyo: true, repeat: -1, ease: 'sine.inOut'
+  });
+
+  // ─── MAGNETIC EFFECT on gold buttons ───
+  document.querySelectorAll('.btn-cta, .btn-lang').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
+      gsap.to(btn, { x, y, duration: 0.3, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
+    });
+  });
+
+  // ─── PARALLAX on ambient orbs with scroll ───
+  gsap.to('.amb-1', {
+    y: -150, scrollTrigger: { trigger: '#page-landing', start: 'top top', end: 'bottom bottom', scrub: 2 }
+  });
+  gsap.to('.amb-2', {
+    y: 100, scrollTrigger: { trigger: '#page-landing', start: 'top top', end: 'bottom bottom', scrub: 2 }
+  });
+}
 </script>
 </body>
 </html>
